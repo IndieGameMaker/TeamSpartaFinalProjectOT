@@ -10,6 +10,8 @@
     - 안드로이드 : 텍스처 포맷 ETC2
     - iOS : 텍스처 포맷 PVRTC
   - iOS의 경우 맥 OS(Xcode)에서 빌드해야 함
+  - 두개 다 출시를 목표로 한다면 플랫폼 스위칭시 시간소모를 줄이기 위해 Cache Server를 활용하는 것이 좋음
+    - Unity Cache Server 문서 : https://docs.unity3d.com/Manual/CacheServer.html
     
 - WebGL 플랫폼
   - itch.io 통해 배포
