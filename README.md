@@ -10,8 +10,8 @@
     - 안드로이드 : 텍스처 포맷 ETC2
     - iOS : 텍스처 포맷 PVRTC
   - iOS의 경우 맥 OS(Xcode)에서 빌드해야 함
-  - 두개 다 출시를 목표로 한다면 플랫폼 스위칭시 시간소모를 줄이기 위해 Cache Server를 활용하는 것이 좋음
-    - Unity Cache Server 문서 : https://docs.unity3d.com/Manual/CacheServer.html
+  - 두개 다 출시를 목표로 한다면 플랫폼 스위칭시 시간소모를 줄이기 위해 Accelerator(Cache Server)를 활용하는 것이 좋음
+    - Unity Accelerator 문서 : https://docs.unity3d.com/kr/2021.3/Manual/UnityAccelerator.html
     
 - WebGL 플랫폼
   - itch.io 통해 배포
@@ -127,7 +127,7 @@ exit 0
 - Git LFS 기본 용량은 1GB
 - 추후 용량이 부족할 경우 추가 용량 구매 필요 ($5 정도면 50GB 추가 가능)
 - 에셋 다운로드 후 사용하지 않는 에셋은 반드시 삭제하는 것을 원칙으로 함
-- 다운로드 받은 에셋에서 제공하는 데모 폴더는 반드시 삭제
+- 다운로드 받은 에셋에서 제공하는 데모 폴더는 반드시 삭제 (git lfs 용량을 낭비함)
 
 ## Unity 프로젝트 폴더 구조
 
@@ -137,11 +137,12 @@ exit 0
 - 개인별 Sandbox 폴더 운영할 지 여부 결정
   - Sandbox 폴더는 개인별로 자유롭게 실험할 수 있는 공간
   - 팀 프로젝트에서는 Sandbox 폴더를 사용하지 않는 것을 권장
-  - 단순히 Git Confilict를 회피하기 위해서라면 반대
+  - 단순히 Git Conflict를 회피하기 위한 목적이라면 반대
 
 ### 유니티 버전 통일
 - Unity 2022.x , Unity 6.1.x 결정
 - 처음 결정한 버전으로 끝까지 진행함
+- 필요한 Unity Packages 설치 후 업데이트 하는 경우 주의 필요
 
 ### 프로젝트 설정 표준화 (중요 사항)
 - Version Control 설정
