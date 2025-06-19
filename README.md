@@ -67,14 +67,14 @@
 - 위에 언급한 툴은 모두 Slack과 연동 가능
   - Slack을 통해 알림을 받고, 팀원들과 소통 중요함. 반드시 연동할 것
 
-## 업무분담
+### 업무분담
 
 - 팀원간의 업무 분담
   - 각 팀원의 역할과 책임을 명확히 정의하는 것인 일반적
   - 최종 프로젝트에서는 모든 팀원이 모든 역할을 수행할 수 있도록 하는 것이 목표
   - 역할을 정해두고, 필요시 역할을 변경할 수 있도록 유연하게 운영
 
-## Git 협업
+### Git 협업
 
 - Branch 전략 수립
   
@@ -118,3 +118,33 @@ done
 
 exit 0
 ```
+
+## Unity 프로젝트 폴더 구조
+
+- 폴더 명은 PascalCase로 작성
+- 폴더 구조는 처음 설정한 후 변경하지 않는 것을 권장
+- 폴터 명과 파일명에 공백사용 금지 (언더바(_) 활용)
+- 개인별 Sandbox 폴더 운영할 지 여부 결정
+  - Sandbox 폴더는 개인별로 자유롭게 실험할 수 있는 공간
+  - 팀 프로젝트에서는 Sandbox 폴더를 사용하지 않는 것을 권장
+
+### 유니티 버전 통일
+- Unity 2022.x , Unity 6.1.x 결정
+- 처음 결정한 버전으로 끝까지 진행함
+
+### 프로젝트 설정 표준화 (중요 사항)
+- Version Control 설정
+  - `Edit > Project Settings > Editor`에서 Version Control 설정을 `Visible Meta Files`로 변경
+  ![](images/2025-06-19-17-40-02.png)
+
+- Asset Serialization 설정
+  - `Edit > Project Settings > Editor`에서 Asset Serialization 설정을 `Force Text`로 변경
+  ![](images/2025-06-19-17-40-28.png)
+
+- Script Backend 설정
+  - `Edit > Project Settings > Player`에서 Scripting Backend을 `IL2CPP`로 설정
+  ![](images/2025-06-19-17-42-57.png)
+
+- API Compatibility Level 설정
+  - `Edit > Project Settings > Player`에서 API Compatibility Level을 `.NET Standard 2.1`로 설정
+  ![](images/2025-06-19-17-43-28.png)
