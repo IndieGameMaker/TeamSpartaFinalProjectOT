@@ -292,6 +292,21 @@ exit 0
   - 라이트매핑을 적용할 경우 반드시 설정  
     ![](images/2025-06-20-14-51-56.png)
 
+- Audio Clip : 
+  - Import Settings > Load Type 설정
+    - Streaming : 긴 오디오 클립 (배경음악 등)
+    - Decompress on Load : 짧은 오디오 클립 (효과음 등)
+  
+  - Import Settings > Compression Format 설정
+    - PCM : 무압축, 고품질
+    - Vorbis : 압축, 용량 절약
+    - ADPCM : 압축, 용량 절약, 품질 저하
+  
+  - Import Settings > Sample Rate 설정
+    - 44100Hz : 일반적인 오디오 클립
+    - 22050Hz : 용량 절약, 품질 저하
+    - 11025Hz : 용량 절약, 품질 저하
+
 ### 프로젝트 설정 표준화 (중요 사항)
 - Version Control 설정
   - `Edit > Project Settings > Editor`에서 Version Control 설정을 `Visible Meta Files`로 변경
