@@ -40,6 +40,8 @@
 - 결정된 플랫폼에 따라 리소스 선택이 달라짐
 - Unity Project 생성 후 바로 해당 플랫폼으로 변경
 
+---
+
 ## 렌더 파이프라인 선정
 
 - Built-in Render Pipeline : 사용금지
