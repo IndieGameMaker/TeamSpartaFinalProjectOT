@@ -250,7 +250,6 @@ exit 0
     LoadScene("GameUI", LoadSceneMode.Additive);
     LoadScene("GamePlay", LoadSceneMode.Additive);
     ```
-
 ### InputSystem 사용
 - 레거시 InputManager 비추천
 - InputSystem 사용 권장 
@@ -282,6 +281,17 @@ exit 0
 - 나중에 할 시간이 없음
 - 라이트매핑 적용 여부는 담당튜터와 상의 후 결정
  
+### 최적화는 처음부터
+- 텍스처 해상도 (512, 1024, 2048), 포맷(ETC2, PVRTC 등) 결정
+- 폴리곤 수 확인 (에셋 선정과정)
+- 3D 모델의 Import Settings > Read/Write 언체크 
+- 3D 모델의 Import Settings > Mesh Compression 설정
+  ![](images/2025-06-20-14-51-12.png)
+
+- 3D 모델의 Import Settings > Generate Lightmap UVs 설정
+  - 라이트매핑을 적용할 경우 반드시 설정  
+    ![](images/2025-06-20-14-51-56.png)
+
 ### 프로젝트 설정 표준화 (중요 사항)
 - Version Control 설정
   - `Edit > Project Settings > Editor`에서 Version Control 설정을 `Visible Meta Files`로 변경
