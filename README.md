@@ -2,17 +2,23 @@
 
 ## 타겟 플랫폼 선정
 
-- 가장 먼저 타겟 플랫폼을 선정 : PC, 모바일, WebGL
+- PC(스팀), 모바일, WebGL
   
-- 스팀,PC 플랫폼
+- PC 플랫폼
   - 팀 스파르타 Public Steamworks 계정으로 출시
-    
+  - PC 플랫폼이라고 하더라도 최적화 염두
+  - 목표 FPS
+    - FPS, 액션 : 60fps 이상
+    - RPG, 어드벤처 : 30fps 이상
+    - 개발중 무제한 설정 : Application.targetFrameRate = -1;
+    - 빌드시점에 목표 프레임 명시 : Application.targetFrameRate = 60;
+
 - WebGL 플랫폼
   - itch.io 통해 배포
   - 텍스처 포맷 : 
     - ETC2 (WebGL 2.0 지원)
     - PVRTC (WebGL 1.0 지원)
-    - 테스트 브라우저 결정(크롬, 엣지)
+    - **테스트 브라우저** 결정(크롬, 엣지)
   
 - 모바일 플랫폼
   - 안드로이드 : Google Play Store 출시 목표
@@ -21,17 +27,14 @@
     - 안드로이드 : 텍스처 포맷 ETC2
     - iOS : 텍스처 포맷 PVRTC
   - iOS의 경우 맥 OS(Xcode)에서 빌드해야 함
-  - 두개 다 출시를 목표로 한다면 플랫폼 스위칭시 시간소모를 줄이기 위해 Accelerator(Cache Server)를 활용하는 것이 좋음
+  - 두개 다 출시를 목표로 한다면 플랫폼 스위칭시 시간 소모를 줄이기 위해 Accelerator(Cache Server)를 활용
     - Unity Accelerator 문서 : https://docs.unity3d.com/kr/2021.3/Manual/UnityAccelerator.html
-
+  - 3D 모델의 폴리곤 수를 최소화
+  - 모바일 최적화 작업 필요
+  - 목표 DrawCall 수 : 100 ~ 200개
+  - 목표 FPS : 30 ~ 60fps
 
 - 결정된 플랫폼에 따라 리소스 선택이 달라짐
-    - 모바일 플랫폼일 경우
-      - 3D 모델의 폴리곤 수를 최소화
-      - 모바일 최적화 작업 필요
-      - 목표 DrawCall 수 : 100 ~ 200개
-      - 목표 FPS : 30 ~ 60fps
-
 - Unity Project 생성 후 바로 해당 플랫폼으로 변경
 
 ## 렌더 파이프라인 선정
@@ -39,7 +42,7 @@
 - Built-in Render Pipeline : 사용금지
   - Unity 6.0 부터 지원 중단됨
   
-- Universal Render Pipeline (URP) : 추천
+- **Universal Render Pipeline (URP) : 추천**
   - 모바일, PC, 콘솔 등 다양한 플랫폼에서 최적화된 성능 제공
   - 모바일 최적화에 유리
   
@@ -126,13 +129,15 @@
 ### 일정관리
 
 - 일정관리 툴 도입이 필요
-  - 칸반보드 툴 활용 (Notion, Trello, *Jira* 등)
-  - *Github Projects*
+  - 칸반보드 툴 활용 (Notion, Trello, **Jira** 등)
+  - **Github Projects**
   - 트렐로 (사용편의 상, 대규모 프로젝트에는 부적합)
   ![](images/2025-06-19-16-49-19.png)
+
   - Jira (프로젝트 관리에 특화, 복잡한 기능)
   ![](images/2025-06-19-16-51-41.png)
-  - *Github Projects* (Github과 통합 관리 가능, Issue와 연동)
+
+  - **Github Projects** (Github과 통합 관리 가능, Issue와 연동)
   ![](images/2025-06-19-16-53-05.png)
 
 - 마일스톤 세우기
@@ -142,18 +147,23 @@
 - 이슈 관리
   - Github Issue 기능 적극 활용 (기능 개발, 버그 수정, 문서화 등)
   - 이슈를 통해 작업을 할당하고 진행 상황을 추적
+  - 커밋 메시지에서 Issue 번호를 참조하여 작업 추적
+    - `git commit -m "fix: #13: 버그 수정 내용"`
+    - `git commit -m "feat: #02: 새로운 기능 추가 내용"`
+    - `git commit -m "feat: 로그인 기능 완성 closed #20"`
 
-- 위에 언급한 툴은 모두 Slack과 연동 가능
+- 위에 언급한 툴은 모두 **Slack과 연동 가능**
   - Slack을 통해 알림을 받고, 팀원들과 소통 중요함. 반드시 연동할 것
 
 ### 업무분담
 
-- 팀원간의 업무 분담
+- 팀원간의 업무 분담 (공평한 업무 분담)
   - 각 팀원의 역할과 책임을 명확히 정의하는 것인 일반적
   - 최종 프로젝트에서는 모든 팀원이 모든 역할을 수행할 수 있도록 하는 것이 목표
   - 역할을 정해두고, 필요시 역할을 변경할 수 있도록 유연하게 운영
+  - 기술적 난이도가 높은 부분에 도전 (BT, A*, 네트워크, 백앤드, 인증, ...)
 
-## Git 협업
+## Git
 
 ### Branch 전략 수립
   
@@ -201,7 +211,7 @@ exit 0
 
 ### C# 코드 컨벤션 설정
   - 서로 다른 Editor 사용시 (Visual Studio, Rider, VSCode 등)
-  - UTF-8 인코딩 설정
+  - **UTF-8 인코딩** 설정
   - `.editorconfig` 파일을 프로젝트 루트에 추가하여 코드 스타일 통일
   - [참고](https://unity.com/kr/how-to/formatting-best-practices-c-scripting-unity)
 
