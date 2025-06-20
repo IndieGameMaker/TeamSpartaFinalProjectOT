@@ -10,8 +10,11 @@
   - 목표 FPS
     - FPS, 액션 : 60fps 이상
     - RPG, 어드벤처 : 30fps 이상
-    - 개발중 무제한 설정 : Application.targetFrameRate = -1;
-    - 빌드시점에 목표 프레임 명시 : Application.targetFrameRate = 60;
+    - 개발중 무제한 설정 
+      - QualitySettings.vSyncCount = 0;   // 수직 동기화 끄기
+      - Application.targetFrameRate = -1; // 프레임 제한 해제
+    - 빌드시점에 목표 프레임 명시 
+      - Application.targetFrameRate = 60;
   
 - 모바일 플랫폼
   - 안드로이드 : Google Play Store 출시 목표
