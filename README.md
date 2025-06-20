@@ -51,7 +51,7 @@
   - 모바일, PC, 콘솔 등 다양한 플랫폼에서 최적화된 성능 제공
   - 모바일 최적화에 유리
   
-- High Definition Render Pipeline (HDRP) : 세모
+- High Definition Render Pipeline (HDRP) : 비추천
   - 고사양 PC, 콘솔 게임에 적합
   - 스팀 출시를 목표로 한다면 고려 가능
   - 최적화 난이도 높음
